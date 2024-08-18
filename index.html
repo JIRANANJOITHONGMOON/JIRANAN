@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #e6f2ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            scroll-behavior: smooth;
+        }
+
+        .contact-icons {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #3399ff;
+        }
+
+        #contact p a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        #contact p a:hover {
+            color: #66b3ff;
+        }
+
+        header {
+            background-color: #b3d9ff;
+            padding: 20px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #3399ff;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #66b3ff;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 20px 0;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            padding: 60px 100px;
+            margin: 80px auto;
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .content.active {
+            display: block;
+            opacity: 1;
+            animation: slide-in 0.5s forwards;
+        }
+
+        @keyframes slide-in {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #3399ff;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: #3399ff;
+
+        }
+
+        h1 {
+            font-size: 36px;
+            border-bottom: #3399ff;
+        }
+
+        h2 {
+            font-size: 28px;
+            border-bottom: 2px solid #3399ff;
+        }
+
+        h3 {
+            font-size: 24px;
+        }
+
+        h4 {
+            color: #3399ff;
+            font-size: 28px;
+        }
+
+        ul {
+            padding-left: 0;
+            color: #000000;
+            list-style-position: inside;
+            text-align: left;
+            margin: 0 auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #b3d9ff;
+            color: #3399ff;
+            margin-top: 40px;
+            font-size: 14px;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        #contact p {
+            line-height: 1.8;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #contact strong {
+            color: #000000;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+        }
+
+        .experience-item h3 {
+            font-size: 24px;
+            color: #3399ff;
+            border-bottom: 2px solid #3399ff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-item ul li {
+            margin-bottom: 10px;
+        }
+
+        .experience-item ul li strong {
+            color: #000000;
+        }
+
+        .project-item {
+            margin-bottom: 40px;
+        }
+
+        .project-img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 20px 0;
+        }
+
+        .content.active h2 {
+            font-size: 28px;
+            display: block;
+            opacity: 1;
+            animation: slide-in 0.5s forwards;
+        }
+
+        .content.active {
+            font-size: 20px;
+            display: block;
+            opacity: 1;
+            animation: slide-in 0.5s forwards;
+        }
+
+        @media (max-width: 600px) {
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .profile-pic {
+                width: 100px;
+                height: 100px;
+            }
+
+            section {
+                padding: 40px 10px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 20px;
+            }
+
+            footer {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header and Navigation -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="content active">
+        <h1>About Me</h1>
+        <h1>
+            <hr style="width:100%;text-align:left;margin-left:0">
+        </h1>
+        <!-- Profile Picture -->
+        <img src="images/picture.jpg" alt="Profile Picture of Jiranan Joithongmoon" class="profile-pic">
+        <p>Ms. Jiranan Joithongmoon (Juliana)<br>
+            Date of Birth: 1/Dec/2002<br>
+            Gender: Female<br>
+            City of Birth: Nakhon Pathom<br>
+            Country of Citizenship: Thailand<br>
+            Country of Residence: Thailand
+        </p>
+        <h4>Strengths</h4>
+        <p>I can manage my time.
+        <p>
+        <p>I am always punctual at work.
+        <P>
+        <p>I love to work with a team and I'm hardworking.</p>
+        <h4>Weakness</h4>
+        <p>I'm an overthinking person, but I'm working on it.</p>
+        <h4>Languages & Level</h4>
+        <p>Thai - Native / Mother Tongue<br>
+            English – Upper Intermediate</p>
+        <h4>Programming Skills</h4>
+        <ul>
+            <li>C/C++</li>
+            <li>Python</li>
+            <li>Arduino</li>
+            <li>Proteus</li>
+            <li>Pspice</li>
+            <li>MATLAB</li>
+            <li>Microsoft Office</li>
+        </ul>
+        <h4>Highlighted Projects</h4>
+        <p>Principles of binary numbers from mathematical principles.<br>
+            Analysis of frequency and amplitude of sounds from music.</p>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="content">
+        <h2>Experience</h2>
+        <div class="experience-item">
+            <ul>
+                <li><strong>Electrical Engineering Creativity Project:</strong> Utilized SPICE simulation software to
+                    design electrical and electronic circuits for smart systems and IoT applications.</li>
+                <li><strong>Flutter Android Mobile Application Development:</strong> Developed an introductory mobile
+                    application using Flutter.</li>
+                <li><strong>Face Detection and Recognition:</strong> Implemented face detection and recognition using
+                    Python with OpenCV and TensorFlow.</li>
+                <li><strong>Mind Mapping Skills:</strong> Enhanced problem-solving and brainstorming abilities through
+                    mind mapping techniques.</li>
+                <li><strong>Network Device Configuration:</strong> Configured network devices for beginners in
+                    networking.</li>
+                <li><strong>Mobile Web Application Development:</strong> Developed a mobile web application using HTML,
+                    CSS, JavaScript, Bootstrap, and PHP.</li>
+                <li><strong>Basic Python Programming:</strong> Acquired basic programming skills in Python.</li>
+                <li><strong>Function and Class Creation in Python:</strong> Created functions and classes in Python to
+                    streamline code and improve efficiency.</li>
+            </ul>
+        </div>
+        <div class="experience-item">
+            <h3>Education</h3>
+            <ul>
+                <li><strong>Institution Name:</strong> Silpakorn University</li>
+                <li><strong>Location/Address:</strong> Ratchamankha Nai Rd., Nakhon Pathom 73000, Thailand</li>
+                <li><strong>Degree:</strong> Bachelor of Engineering (Electronics and Computer System Engineering)</li>
+                <li><strong>Current Field of Study:</strong> Faculty of Engineering and Industrial Technology</li>
+                <li><strong>Institution Start Date:</strong> 26/2/2021</li>
+                <li><strong>Expected Graduation Date:</strong> 15/11/2025</li>
+                <li><strong>University Vacation Dates:</strong> 1/4/2024 - 5/7/2024</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="content">
+        <h2>Projects</h2>
+        <div class="project-item">
+            <h3>Project 1</h3>
+            <img src="images/project1.jpg" alt="Project 1: Binary Numbers Analysis" class="project-img">
+            <p>Principles of binary numbers from mathematical principles.</p>
+            <a href="https://youtu.be/Ltmh8Tr5ZAA" target="_blank">View Project</a>
+        </div>
+        <div class="project-item">
+            <h3>Project 2</h3>
+            <img src="images/project2.png" alt="Project 2: Frequency and Amplitude Analysis" class="project-img">
+            <p>Analysis of frequency and amplitude of sounds from music.</p>
+            <a href="https://youtu.be/aSj6dOn3ejM" target="_blank">View Project</a>
+        </div>
+        <div class="project-item">
+            <h3>Project 3</h3>
+            <img src="images/Project3.jpg" alt="Project 3: SMART CAFE" class="project-img">
+            <p>SMART CAFE.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="content">
+        <h2>Contact</h2>
+        <p>
+            <i class="fas fa-map-marker-alt contact-icons"></i> Address: 34/1 M.9 Hin Mun, Bang Len, Nakhon Pathom,
+            73190<br>
+            <i class="fas fa-phone contact-icons"></i> Phone: <a href="tel:+66989779819"> (+66)82-8548225</a><br>
+            <i class="fas fa-envelope contact-icons"></i> Email: <a href="noeyjiranan45@gmail.com">
+                noeyjiranan45@gmail.com</a><br>
+            <i class="fab fa-facebook contact-icons"></i> Facebook: <a
+                href="https://www.facebook.com/Noeyyy.Jiranan?mibextid=LQQJ4d" target="_blank"> Jiranan
+                Joithongmoon</a><br>
+            <i class="fab fa-instagram contact-icons"></i> Instagram: <a
+                href="https://www.instagram.com/n.noeyjrn?igsh=YzJ0ZjBsejduZmty" target="_blank">n.noeyjrn</a><br>
+            <i class="fab fa-line contact-icons"></i> Line ID: <a href="https://line.me/ti/p/2yfCZY67ly"
+                target="_blank">noeyyyjiranan</a><br>
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Jiranan Joithongmoon. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const links = document.querySelectorAll('nav a');
+
+            function changeSection(targetId) {
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === targetId) {
+                        section.classList.add('active');
+                    }
+                });
+            }
+
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = e.target.getAttribute('href').substring(1);
+                    changeSection(targetId);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

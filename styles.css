@@ -1,0 +1,144 @@
+/* ตั้งค่าพื้นฐาน */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #ffe6f0;
+    /* สีชมพูอ่อนสำหรับพื้นหลัง */
+    overflow-x: hidden;
+}
+
+/* ส่วนหัวและเมนูนำทาง */
+header {
+    background-color: #ffccd5;
+    /* สีชมพูอ่อนสำหรับหัว */
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #b34a66;
+    /* สีชมพูเข้มสำหรับข้อความเมนู */
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff99aa;
+    /* สีชมพูสว่างเมื่อเมาส์ชี้ */
+}
+
+/* รูปภาพโปรไฟล์ */
+.profile-pic {
+    width: 150px;
+    /* ขนาดความกว้างของรูปภาพ */
+    height: 150px;
+    /* ขนาดความสูงของรูปภาพ */
+    border-radius: 50%;
+    /* ทำให้รูปภาพเป็นวงกลม */
+    margin-top: 20px;
+    /* เว้นระยะด้านบน */
+    margin-bottom: 20px;
+    /* เว้นระยะด้านล่าง */
+    object-fit: cover;
+    /* ทำให้รูปภาพพอดีกับขนาดที่กำหนด */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* เพิ่มเงาเบาๆ */
+}
+
+/* ส่วนเนื้อหา */
+section {
+    padding: 40px 20px;
+    margin: 40px auto;
+    max-width: 800px;
+    background-color: #fff;
+    /* สีขาวสำหรับเนื้อหา */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.content.active {
+    display: block;
+    opacity: 1;
+    animation: slide-in 0.5s forwards;
+}
+
+.experience {
+    color: black
+}
+
+/* แอนิเมชันเลื่อนเข้า */
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* หัวข้อใหญ่และหัวข้อย่อย */
+h1,
+h2,
+h3 {
+    color: #b34a66;
+    /* สีชมพูเข้มสำหรับหัวข้อ */
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    border-bottom: #3399ff;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+/* รายการลิสต์ */
+ul {
+    padding-left: 20px;
+    color: #b34a66;
+    /* สีชมพูเข้มสำหรับลิสต์ */
+}
+
+/* ส่วนท้าย */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffccd5;
+    /* สีชมพูอ่อนสำหรับท้าย */
+    color: #b34a66;
+    /* สีชมพูเข้มสำหรับข้อความท้าย */
+    margin-top: 40px;
+    font-size: 14px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
